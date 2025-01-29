@@ -12,4 +12,4 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 
 # Substitute environment variables and overwrite nginx.conf
 CMD ["/bin/sh", "-c", "if [ -z \"$COMMON_URL\" ]; then echo 'Environment variable COMMON_URL must be set'; exit 1; fi; \
-     envsubst '${COMMON_URL}' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"]
+     envsubst '${COMMON_URL}' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && cat /etc/nginx/nginx.conf && nginx -g 'daemon off;'"]
